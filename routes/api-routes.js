@@ -7,5 +7,5 @@ module.exports = function(app) {
     });
   });
 
-  app.post();
+  app.post("api/products", function(req, res) {});
 };
