@@ -1,23 +1,24 @@
-$("#complete").on("click", function() {
-  let gunCount = 0;
-  let bullCount = 0;
-  let parCount = 0;
-  let initDCount = 0;
-  let dartCount = 0;
-  let zeldaCount = 0;
-  let strageCount = 0;
-  let coffeeCount = 0;
-  let guacCount = 0;
-  let hamCount = 0;
+$("#complete").on("click", function(event) {
+  event.preventDefault();
 
-  parseInt($("#gun").val());
-  parseInt($("#bull").val());
-  parseInt($("#par").val());
-  parseInt($("#initD").val());
-  parseInt($("#darts").val());
-  parseInt($("#zelda").val());
-  parseInt($("#strange").val());
-  parseInt($("#coffee").val());
-  parseInt($("#guac").val());
-  parseInt($("#ham").val());
+  const gunCount = parseInt(
+    $("#gun")
+      .val()
+      .trim()
+  );
+
+  console.log(gunCount);
+
+  const valueArr = $(".form-control");
+
+  console.log(valueArr);
+
+  const order = {};
+
+  for (let i = 0; i < valueArr.length; i++) {
+    if (valueArr[i].val()) {
+      order[valueArr[i].id] = parseInt(valueArr[i].val().trim());
+    }
+  }
+  $.post("/api/products", order, function(response) {});
 });
