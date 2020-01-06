@@ -9,6 +9,6 @@ module.exports = function(app) {
 
   app.post("/api/products", function(req, res) {
     console.log(req.body);
-    db.Products.batchUpdate({where:})
+    db.Products.batchUpdate({});
   });
 };
